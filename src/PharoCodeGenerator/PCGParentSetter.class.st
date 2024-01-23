@@ -1,19 +1,21 @@
 Class {
-	#name : #PCGParentSetter,
-	#superclass : #PCGGenericVisitor,
+	#name : 'PCGParentSetter',
+	#superclass : 'PCGGenericVisitor',
 	#instVars : [
 		'parentsStack'
 	],
-	#category : #'PharoCodeGenerator-Visitors'
+	#category : 'PharoCodeGenerator-Visitors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Visitors'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGParentSetter >> initialize [
 	super initialize.
 	parentsStack := Stack new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGParentSetter >> visitProgramNode: aProgramNode [
 	parentsStack ifNotEmpty: [ 
 		aProgramNode parent: parentsStack top ].

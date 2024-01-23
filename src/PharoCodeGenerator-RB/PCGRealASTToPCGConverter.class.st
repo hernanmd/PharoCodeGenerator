@@ -1,20 +1,21 @@
 Class {
-	#name : #PCGRealASTToPCGConverter,
-	#superclass : #RBProgramNodeVisitor,
-	#category : #'PharoCodeGenerator-RB'
+	#name : 'PCGRealASTToPCGConverter',
+	#superclass : 'RBProgramNodeVisitor',
+	#category : 'PharoCodeGenerator-RB',
+	#package : 'PharoCodeGenerator-RB'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter class >> visit: aProgramNode [
 	^ self new visit: aProgramNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visit: aProgramNode [
 	^ aProgramNode acceptVisitor: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitArgumentNode: anArgumentNode [
 	<generated>
 	^ PCGArgumentNode new
@@ -22,12 +23,12 @@ PCGRealASTToPCGConverter >> visitArgumentNode: anArgumentNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitArgumentVariableNode: anArgumentVariableNode [
 	^ self visitArgumentNode: anArgumentVariableNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitArrayNode: anArrayNode [
 	<generated>
 	^ PCGArrayNode new
@@ -35,7 +36,7 @@ PCGRealASTToPCGConverter >> visitArrayNode: anArrayNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitAssignmentNode: anAssignmentNode [
 	<generated>
 	^ PCGAssignmentNode new
@@ -44,7 +45,7 @@ PCGRealASTToPCGConverter >> visitAssignmentNode: anAssignmentNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitBlockNode: aBlockNode [
 	<generated>
 	^ PCGBlockNode new
@@ -53,7 +54,7 @@ PCGRealASTToPCGConverter >> visitBlockNode: aBlockNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitCascadeNode: aCascadeNode [
 	|messages|
 	messages := aCascadeNode messages collect: [ :toVisit | self visit: toVisit ].
@@ -63,7 +64,7 @@ PCGRealASTToPCGConverter >> visitCascadeNode: aCascadeNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitGlobalNode: aGlobalNode [
 	<generated>
 	^ PCGGlobalNode new
@@ -71,7 +72,7 @@ PCGRealASTToPCGConverter >> visitGlobalNode: aGlobalNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitInstanceVariableNode: anInstanceVariableNode [
 	<generated>
 	^ PCGInstanceVariableNode new
@@ -79,7 +80,7 @@ PCGRealASTToPCGConverter >> visitInstanceVariableNode: anInstanceVariableNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitLiteralArrayNode: aLiteralArrayNode [
 	<generated>
 	^ PCGLiteralArrayNode new
@@ -89,12 +90,12 @@ PCGRealASTToPCGConverter >> visitLiteralArrayNode: aLiteralArrayNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitLiteralNode: aLiteralNode [
 	^ self visitLiteralValueNode: aLiteralNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitLiteralValueNode: aLiteralValueNode [
 	<generated>
 	^ PCGLiteralValueNode new
@@ -102,7 +103,7 @@ PCGRealASTToPCGConverter >> visitLiteralValueNode: aLiteralValueNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitMessageNode: aMessageNode [
 	<generated>
 	^ PCGMessageNode new
@@ -112,7 +113,7 @@ PCGRealASTToPCGConverter >> visitMessageNode: aMessageNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitMethodNode: aMethodNode [
 	<generated>
 	^ PCGMethodNode new
@@ -123,7 +124,7 @@ PCGRealASTToPCGConverter >> visitMethodNode: aMethodNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitPragmaNode: aPragmaNode [
 	<generated>
 	^ PCGPragmaNode new
@@ -132,7 +133,7 @@ PCGRealASTToPCGConverter >> visitPragmaNode: aPragmaNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitReturnNode: aReturnNode [
 	<generated>
 	^ PCGReturnNode new
@@ -140,12 +141,12 @@ PCGRealASTToPCGConverter >> visitReturnNode: aReturnNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitSelfNode: aSelfNode [
 	^ PCGSelfNode new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitSequenceNode: aSequenceNode [
 	<generated>
 	^ PCGSequenceNode new
@@ -154,12 +155,12 @@ PCGRealASTToPCGConverter >> visitSequenceNode: aSequenceNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitSuperNode: aSuperNode [
 	^ PCGSuperNode new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitTemporaryNode: aTemporaryNode [
 	<generated>
 	^ PCGTemporaryNode new
@@ -167,12 +168,12 @@ PCGRealASTToPCGConverter >> visitTemporaryNode: aTemporaryNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitThisContextNode: aThisContextNode [
 	^ PCGThisContextNode new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGRealASTToPCGConverter >> visitVariableNode: aVariableNode [
 	self error: 'The AST to convert should not contain variable node. You need to perform semantic analysis on it.'
 ]

@@ -2,16 +2,18 @@
 I am the error created when an AST node is incomplete and can thus not be translated as Pharo's real AST.
 "
 Class {
-	#name : #PCGASTIncompleteForTranslation,
-	#superclass : #PCGTranslationError,
+	#name : 'PCGASTIncompleteForTranslation',
+	#superclass : 'PCGTranslationError',
 	#instVars : [
 		'node',
 		'unsetInstanceVariable'
 	],
-	#category : #'PharoCodeGenerator-Errors'
+	#category : 'PharoCodeGenerator-Errors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Errors'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGASTIncompleteForTranslation class >> node: node unsetInstanceVariable: unsetInstanceVariable [ 
 	^ self new
 		node: node;
@@ -19,22 +21,22 @@ PCGASTIncompleteForTranslation class >> node: node unsetInstanceVariable: unsetI
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGASTIncompleteForTranslation >> node [
 	^ node
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGASTIncompleteForTranslation >> node: anObject [
 	node := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGASTIncompleteForTranslation >> unsetInstanceVariable [
 	^ unsetInstanceVariable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGASTIncompleteForTranslation >> unsetInstanceVariable: anObject [
 	unsetInstanceVariable := anObject
 ]

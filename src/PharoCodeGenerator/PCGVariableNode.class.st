@@ -3,29 +3,31 @@ I model RBVariableNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGVariableNode,
-	#superclass : #PCGValueNode,
+	#name : 'PCGVariableNode',
+	#superclass : 'PCGValueNode',
 	#traits : 'PCGTMessageReceiver',
 	#classTraits : 'PCGTMessageReceiver classTrait',
 	#instVars : [
 		'#name type: Symbol'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGVariableNode class >> instanceVariablesForRealAST [
 	^ #(#name)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGVariableNode class >> name: name [ 
 	^ self new
 		name: name;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGVariableNode >> = anObject [
 	"Answer whether the receiver and anObject represent the same object."
 
@@ -36,30 +38,30 @@ PCGVariableNode >> = anObject [
 	^ name = anObject name
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGVariableNode >> hash [
 	"Answer an integer value that is related to the identity of the receiver."
 
 	^ name hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGVariableNode >> isVariable [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGVariableNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGVariableNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PCGVariableNode >> printOn: aStream [
 	super printOn: aStream.
 	aStream nextPut: $(.

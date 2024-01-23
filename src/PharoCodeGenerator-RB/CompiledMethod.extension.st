@@ -1,6 +1,6 @@
-Extension { #name : #CompiledMethod }
+Extension { #name : 'CompiledMethod' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 CompiledMethod >> asPCGAST [
 	"Convert Pharo's AST nodes to PCG nodes and return it."
 	^ self parseTree doSemanticAnalysis asPCGAST

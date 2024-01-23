@@ -1,6 +1,6 @@
-Extension { #name : #PCGLiteralArrayNode }
+Extension { #name : 'PCGLiteralArrayNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 PCGLiteralArrayNode class >> classForRealAST [
 	^ RBLiteralArrayNode
 ]

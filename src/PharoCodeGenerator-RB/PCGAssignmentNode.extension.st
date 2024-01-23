@@ -1,6 +1,6 @@
-Extension { #name : #PCGAssignmentNode }
+Extension { #name : 'PCGAssignmentNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 PCGAssignmentNode class >> classForRealAST [
 	^ RBAssignmentNode
 ]

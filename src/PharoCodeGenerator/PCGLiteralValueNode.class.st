@@ -3,27 +3,29 @@ I model RBLiteralValueNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGLiteralValueNode,
-	#superclass : #PCGLiteralNode,
+	#name : 'PCGLiteralValueNode',
+	#superclass : 'PCGLiteralNode',
 	#instVars : [
 		'#value type: Object'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGLiteralValueNode class >> instanceVariablesForRealAST [
 	^ #(#value)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGLiteralValueNode class >> value: value [ 
 	^ self new
 		value: value;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGLiteralValueNode >> = anObject [
 	<generated>
 	self == anObject
@@ -33,29 +35,29 @@ PCGLiteralValueNode >> = anObject [
 	^ value = anObject value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGLiteralValueNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitLiteralValueNode: self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGLiteralValueNode >> hash [
 	<generated>
 	^ value hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGLiteralValueNode >> isLiteralValue [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGLiteralValueNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGLiteralValueNode >> value: anObject [
 	value := anObject
 ]

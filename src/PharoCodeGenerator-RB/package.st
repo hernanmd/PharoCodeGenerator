@@ -1,1 +1,1 @@
-Package { #name : #'PharoCodeGenerator-RB' }
+Package { #name : 'PharoCodeGenerator-RB' }

@@ -1,6 +1,6 @@
-Extension { #name : #PCGVariableNode }
+Extension { #name : 'PCGVariableNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 PCGVariableNode class >> classForRealAST [
 	^ RBVariableNode
 ]

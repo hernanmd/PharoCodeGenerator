@@ -1,6 +1,6 @@
-Extension { #name : #PCGBlockNode }
+Extension { #name : 'PCGBlockNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 PCGBlockNode class >> classForRealAST [
 	^ RBBlockNode
 ]

@@ -3,19 +3,21 @@ I model RBValueNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGValueNode,
-	#superclass : #PCGProgramNode,
+	#name : 'PCGValueNode',
+	#superclass : 'PCGProgramNode',
 	#traits : 'PCGTReturnable + PCGTAssignable + PCGTCascadeTarget + PCGTStatement + PCGTEvaluable',
 	#classTraits : 'PCGTReturnable classTrait + PCGTAssignable classTrait + PCGTCascadeTarget classTrait + PCGTStatement classTrait + PCGTEvaluable classTrait',
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGValueNode class >> instanceVariablesForRealAST [
 	^ #()
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGValueNode >> isValue [
 	<generated>
 	^ true

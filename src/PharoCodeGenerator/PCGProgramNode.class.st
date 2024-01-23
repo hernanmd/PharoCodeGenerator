@@ -3,38 +3,40 @@ I model RBProgramNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGProgramNode,
-	#superclass : #Object,
+	#name : 'PCGProgramNode',
+	#superclass : 'Object',
 	#traits : 'PCGTTemplatable',
 	#classTraits : 'PCGTTemplatable classTrait',
 	#instVars : [
 		'#parent type: PCGProgramNode'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGProgramNode class >> instanceVariablesForRealAST [
 	^ #()
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGProgramNode >> acceptVisitor: aVisitor [
 	^ self subclassResponsibility
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGProgramNode >> asPCG [
 	^ self
 ]
 
-{ #category : #checking }
+{ #category : 'checking' }
 PCGProgramNode >> checkAST [
 	PCGASTChecker new
 		visit: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGProgramNode >> children [
 	^ (self class slots
 		select: [:slot | 
@@ -44,175 +46,175 @@ PCGProgramNode >> children [
 		thenCollect: [ :slot | (slot read: self) asOrderedCollection ]) flattened
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGProgramNode >> classForRealAST [
 	^ self class classForRealAST
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGProgramNode >> instanceVariablesForRealAST [
 	^ self class instanceVariablesForRealAST
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isArgument [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isArray [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isAssignment [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isBlock [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isCascade [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isGlobal [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isInstanceVariable [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isLiteral [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isLiteralArray [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isLiteralValue [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isMessage [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isMethod [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isNull [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isPCGObject [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isPCGProgramNode [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isPragma [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isReturn [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isSelf [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isSequence [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isSuper [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isTemporary [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isThisContext [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isValue [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGProgramNode >> isVariable [
 	<generated>
 	^ false
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGProgramNode >> meta [
 	self checkAST.
 	^ PCGMetaMetaCodeGenerator new
 		visit: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGProgramNode >> parent [
 	^ parent ifNil: [ PCGNullNode new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGProgramNode >> parent: anObject [
 	parent := anObject
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGProgramNode >> sourceCode [
 	^ self realAST newSource
 ]

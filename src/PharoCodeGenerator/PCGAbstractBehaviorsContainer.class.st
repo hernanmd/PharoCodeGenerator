@@ -1,66 +1,68 @@
 Class {
-	#name : #PCGAbstractBehaviorsContainer,
-	#superclass : #Object,
+	#name : 'PCGAbstractBehaviorsContainer',
+	#superclass : 'Object',
 	#traits : 'PCGTInstallableEntity',
 	#classTraits : 'PCGTInstallableEntity classTrait',
 	#instVars : [
 		'behaviors',
 		'name'
 	],
-	#category : #'PharoCodeGenerator-MetaModel'
+	#category : 'PharoCodeGenerator-MetaModel',
+	#package : 'PharoCodeGenerator',
+	#tag : 'MetaModel'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGAbstractBehaviorsContainer class >> named: aString [
 	^ self new
 		name: aString;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAbstractBehaviorsContainer >> behaviors [
 	^ behaviors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAbstractBehaviorsContainer >> behaviors: anObject [
 	behaviors := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGAbstractBehaviorsContainer >> initialize [
 	super initialize.
 	self behaviors: OrderedCollection new
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGAbstractBehaviorsContainer >> installPCGClass: aPCGClassDescription [
 	self behaviors
 		add: aPCGClassDescription
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGAbstractBehaviorsContainer >> installPCGTrait: aPCGTraitDescription [
 	self behaviors
 		add: aPCGTraitDescription
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGAbstractBehaviorsContainer >> isPCGObject [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAbstractBehaviorsContainer >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAbstractBehaviorsContainer >> name: anObject [
 	name := anObject asPCG
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PCGAbstractBehaviorsContainer >> printOn: aStream [
 	super printOn: aStream.
 	aStream nextPut: $(.

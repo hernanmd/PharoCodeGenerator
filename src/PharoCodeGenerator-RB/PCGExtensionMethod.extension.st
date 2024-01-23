@@ -1,6 +1,6 @@
-Extension { #name : #PCGExtensionMethod }
+Extension { #name : 'PCGExtensionMethod' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 PCGExtensionMethod >> realAST [
 	^ self methodNode realAST
 ]

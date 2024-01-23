@@ -2,12 +2,14 @@
 I copy a PCG AST and create a fresh, identical, new AST from it.
 "
 Class {
-	#name : #PCGStaticASTCopier,
-	#superclass : #PCGVisitor,
-	#category : #'PharoCodeGenerator-Visitors'
+	#name : 'PCGStaticASTCopier',
+	#superclass : 'PCGVisitor',
+	#category : 'PharoCodeGenerator-Visitors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Visitors'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visit: anObject [
 	"Here we consider that sometimes an attempt to visit a Symbol can be made to handle copy of PCGTemplateParameter.
 	 If a symbol is passed, simply return it, like that this is transparent to user and harms no one.
@@ -18,7 +20,7 @@ PCGStaticASTCopier >> visit: anObject [
 	^ anObject acceptVisitor: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitArgumentNode: anArgumentNode [
 	<generated>
 	^ PCGArgumentNode new
@@ -26,7 +28,7 @@ PCGStaticASTCopier >> visitArgumentNode: anArgumentNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitArrayNode: anArrayNode [
 	<generated>
 	^ PCGArrayNode new
@@ -34,7 +36,7 @@ PCGStaticASTCopier >> visitArrayNode: anArrayNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitAssignmentNode: anAssignmentNode [
 	<generated>
 	^ PCGAssignmentNode new
@@ -43,7 +45,7 @@ PCGStaticASTCopier >> visitAssignmentNode: anAssignmentNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitBlockNode: aBlockNode [
 	<generated>
 	^ PCGBlockNode new
@@ -52,7 +54,7 @@ PCGStaticASTCopier >> visitBlockNode: aBlockNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitCascadeNode: aCascadeNode [
 	<generated>
 	^ PCGCascadeNode new
@@ -61,7 +63,7 @@ PCGStaticASTCopier >> visitCascadeNode: aCascadeNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitCompositeTemplateParameter: aCompositeTemplateParameter [
 	<generated>
 	^ PCGCompositeTemplateParameter new
@@ -72,7 +74,7 @@ PCGStaticASTCopier >> visitCompositeTemplateParameter: aCompositeTemplateParamet
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitExtensionMethod: anExtensionMethod [
 	<generated>
 	^ PCGExtensionMethod new
@@ -81,7 +83,7 @@ PCGStaticASTCopier >> visitExtensionMethod: anExtensionMethod [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitGlobalNode: aGlobalNode [
 	<generated>
 	^ PCGGlobalNode new
@@ -89,7 +91,7 @@ PCGStaticASTCopier >> visitGlobalNode: aGlobalNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitInstanceVariableNode: anInstanceVariableNode [
 	<generated>
 	^ PCGInstanceVariableNode new
@@ -97,7 +99,7 @@ PCGStaticASTCopier >> visitInstanceVariableNode: anInstanceVariableNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitLiteralArrayNode: aLiteralArrayNode [
 	<generated>
 	^ PCGLiteralArrayNode new
@@ -107,7 +109,7 @@ PCGStaticASTCopier >> visitLiteralArrayNode: aLiteralArrayNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitLiteralValueNode: aLiteralValueNode [
 	<generated>
 	^ PCGLiteralValueNode new
@@ -115,7 +117,7 @@ PCGStaticASTCopier >> visitLiteralValueNode: aLiteralValueNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitMessageNode: aMessageNode [
 	<generated>
 	^ PCGMessageNode new
@@ -125,7 +127,7 @@ PCGStaticASTCopier >> visitMessageNode: aMessageNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitMethodNode: aMethodNode [
 	<generated>
 	^ PCGMethodNode new
@@ -137,7 +139,7 @@ PCGStaticASTCopier >> visitMethodNode: aMethodNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitPragmaNode: aPragmaNode [
 	<generated>
 	^ PCGPragmaNode new
@@ -146,7 +148,7 @@ PCGStaticASTCopier >> visitPragmaNode: aPragmaNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitReturnNode: aReturnNode [
 	<generated>
 	^ PCGReturnNode new
@@ -154,13 +156,13 @@ PCGStaticASTCopier >> visitReturnNode: aReturnNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitSelfNode: aSelfNode [
 	<generated>
 	^ PCGSelfNode new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitSequenceNode: aSequenceNode [
 	<generated>
 	^ PCGSequenceNode new
@@ -169,13 +171,13 @@ PCGStaticASTCopier >> visitSequenceNode: aSequenceNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitSuperNode: aSuperNode [
 	<generated>
 	^ PCGSuperNode new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitTemplateParameter: aTemplateParameter [
 	^ PCGTemplateParameter new
 		name: (self visit: aTemplateParameter name);
@@ -183,7 +185,7 @@ PCGStaticASTCopier >> visitTemplateParameter: aTemplateParameter [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitTemporaryNode: aTemporaryNode [
 	<generated>
 	^ PCGTemporaryNode new
@@ -191,7 +193,7 @@ PCGStaticASTCopier >> visitTemporaryNode: aTemporaryNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticASTCopier >> visitThisContextNode: aThisContextNode [
 	<generated>
 	^ PCGThisContextNode new

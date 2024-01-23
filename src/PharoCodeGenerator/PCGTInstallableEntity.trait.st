@@ -1,22 +1,24 @@
 Trait {
-	#name : #PCGTInstallableEntity,
+	#name : 'PCGTInstallableEntity',
 	#instVars : [
 		'installationHooks'
 	],
-	#category : #'PharoCodeGenerator-Traits'
+	#category : 'PharoCodeGenerator-Traits',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Traits'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 PCGTInstallableEntity >> addInstallationHook: aBlock [
 	self installationHooks add: aBlock
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGTInstallableEntity >> installOn: anObject [
 	^ self explicitRequirement
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGTInstallableEntity >> installOn: aBehavior if: aBlock [
 	aBlock
 		ifFalse: [ ^ self ].
@@ -24,24 +26,24 @@ PCGTInstallableEntity >> installOn: aBehavior if: aBlock [
 	^ self installOn: aBehavior
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGTInstallableEntity >> installOn: aBehaviour ifHandwrittenMethodAlreadyExist: aBlock [
 	[ self installOn: aBehaviour ]
 		on: PCGHandwrittenMethodAlreadyExist
 		do: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTInstallableEntity >> installationHooks [
 	^ installationHooks ifNil: [ installationHooks := OrderedCollection new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTInstallableEntity >> installationHooks: anObject [
 	installationHooks := anObject
 ]
 
-{ #category : #'installation hooks' }
+{ #category : 'installation hooks' }
 PCGTInstallableEntity >> runInstallationHooksFor: anObject [
 	self installationHooks do: [ :block |
 		block cull: anObject ]

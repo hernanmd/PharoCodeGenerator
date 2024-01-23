@@ -3,29 +3,31 @@ I model RBReturnNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGReturnNode,
-	#superclass : #PCGProgramNode,
+	#name : 'PCGReturnNode',
+	#superclass : 'PCGProgramNode',
 	#traits : 'PCGTStatement',
 	#classTraits : 'PCGTStatement classTrait',
 	#instVars : [
 		'#value type: PCGValueNode'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGReturnNode class >> instanceVariablesForRealAST [
 	^ #(#value)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGReturnNode class >> value: value [ 
 	^ self new
 		value: value;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGReturnNode >> = anObject [
 	<generated>
 	self == anObject
@@ -35,29 +37,29 @@ PCGReturnNode >> = anObject [
 	^ value = anObject value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGReturnNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitReturnNode: self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGReturnNode >> hash [
 	<generated>
 	^ value hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGReturnNode >> isReturn [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGReturnNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGReturnNode >> value: anObject [
 	value := anObject
 ]

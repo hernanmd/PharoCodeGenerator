@@ -1,6 +1,6 @@
-Extension { #name : #RBLiteralValueNode }
+Extension { #name : 'RBLiteralValueNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 RBLiteralValueNode >> value: aValue [
 	^ self value: aValue start: 0 stop: -1
 ]

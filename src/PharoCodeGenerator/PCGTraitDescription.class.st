@@ -1,15 +1,17 @@
 Class {
-	#name : #PCGTraitDescription,
-	#superclass : #PCGBehaviorDescription,
-	#category : #'PharoCodeGenerator-MetaModel'
+	#name : 'PCGTraitDescription',
+	#superclass : 'PCGBehaviorDescription',
+	#category : 'PharoCodeGenerator-MetaModel',
+	#package : 'PharoCodeGenerator',
+	#tag : 'MetaModel'
 }
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGTraitDescription >> installOn: aRPackage [
 	^ aRPackage installPCGTrait: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGTraitDescription >> isPCGTrait [
 	^ true
 ]

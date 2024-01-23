@@ -3,25 +3,27 @@ I model RBSuperNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGSuperNode,
-	#superclass : #PCGVariableNode,
+	#name : 'PCGSuperNode',
+	#superclass : 'PCGVariableNode',
 	#traits : 'PCGTUnchangeableName',
 	#classTraits : 'PCGTUnchangeableName classTrait',
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGSuperNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitSuperNode: self
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGSuperNode >> initialize [
 	super initialize.
 	name := #super
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGSuperNode >> isSuper [
 	<generated>
 	^ true

@@ -1,13 +1,15 @@
 Class {
-	#name : #PCGMetaMetaCodeGenerator,
-	#superclass : #PCGVisitor,
+	#name : 'PCGMetaMetaCodeGenerator',
+	#superclass : 'PCGVisitor',
 	#instVars : [
 		'variableNameProvider'
 	],
-	#category : #'PharoCodeGenerator-Visitors'
+	#category : 'PharoCodeGenerator-Visitors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Visitors'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> buildBodyBlockMetaCodeFrom: objectWithStatements for: codeForObjectUsingTBodyBlock [
 	| bodyArgument bodyBlockMessage |
 	bodyArgument := (variableNameProvider nameForVariable: #body) asPCGArgument.
@@ -26,7 +28,7 @@ PCGMetaMetaCodeGenerator >> buildBodyBlockMetaCodeFrom: objectWithStatements for
 	^ bodyBlockMessage
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> buildReceiveMessageCall: aMessageNode for: visitedReceiver [
 	aMessageNode arguments
 		ifEmpty: [ ^ visitedReceiver
@@ -55,29 +57,29 @@ PCGMetaMetaCodeGenerator >> buildReceiveMessageCall: aMessageNode for: visitedRe
 		with: (aMessageNode arguments collect: [ :arg | self visit: arg ]) asArray asPCG
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGMetaMetaCodeGenerator >> initialize [
 	super initialize.
 	variableNameProvider := PCGVariableNameProvider new.
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitArgumentNode: anArgumentNode [
 	^ anArgumentNode name asPCG receiveMessage: #asPCGArgument
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitArrayNode: anArrayNode [
 	^ (anArrayNode statements collect: [ :statement | self visit: statement ]) asArray asPCG
 		receiveMessage: #asPCG
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitAssignmentNode: anAssignmentNode [
 	^ (self visit: anAssignmentNode variable) receiveMessage: #assign: with: (self visit: anAssignmentNode value)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitBlockNode: aBlockNode [
 	|blockNode|
 	"Special case to generate shorter and more readable code."
@@ -90,7 +92,7 @@ PCGMetaMetaCodeGenerator >> visitBlockNode: aBlockNode [
 	^ self buildBodyBlockMetaCodeFrom: aBlockNode for: blockNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitCascadeNode: aCascadeNode [
 	| cascade |
 	cascade := ((self visit: aCascadeNode target) receiveMessage: #asCascadeTarget) asCascadeTarget.
@@ -101,36 +103,36 @@ PCGMetaMetaCodeGenerator >> visitCascadeNode: aCascadeNode [
 	^ cascade
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitGlobalNode: aGlobalNode [
 	^ aGlobalNode name asPCG receiveMessage: #asPCGGlobal
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitInstanceVariableNode: aInstanceVariableNode [
 	^ aInstanceVariableNode name asPCG receiveMessage: #asPCGInstanceVariable
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitLiteralArrayNode: aLiteralArrayNode [
 	^ PCGLiteralArrayNode asPCG
 		receiveMessage: #contents: 
 		with: (aLiteralArrayNode contents collect: [ :statement | self visit: statement ]) asArray asPCG
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitLiteralValueNode: aLiteralValueNode [
 	^ aLiteralValueNode value asPCG receiveMessage: #asPCG
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitMessageNode: aMessageNode [
 	| visitedReceiver |
 	visitedReceiver := self visit: aMessageNode receiver.
 	^ self buildReceiveMessageCall: aMessageNode for: visitedReceiver
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitMethodNode: aMethodNode [
 	|methodNode cascadeNode |
 	methodNode := aMethodNode arguments
@@ -155,23 +157,23 @@ PCGMetaMetaCodeGenerator >> visitMethodNode: aMethodNode [
 	^ cascadeNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitPragmaNode: aPragmaNode [
 	^ PCGPragmaNode asPCG
 		receiveMessage: #selector:arguments: with: aPragmaNode selector asPCG with: (aPragmaNode arguments collect: [ :arg | self visit: arg ]) asArray asPCG
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitReturnNode: aReturnNode [
 	^ (self visit: aReturnNode value) receiveMessage: #returnIt
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitSelfNode: aSelfNode [
 	^ aSelfNode name asPCG receiveMessage: #asPCGNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitSequenceNode: aSequenceNode [
 	^ PCGSequenceNode asPCG
 		receiveMessage: #temporaries:statements:
@@ -179,22 +181,22 @@ PCGMetaMetaCodeGenerator >> visitSequenceNode: aSequenceNode [
 		with: (aSequenceNode statements collect: [ :statement | self visit: statement ]) asArray asPCG
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitSuperNode: aSuperNode [
 	^ aSuperNode name asPCG receiveMessage: #asPCGNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitTemplateParameter: aTemplateParameter [
 	^ aTemplateParameter name asPCG receiveMessage: #asPCGTemplateParameter
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitTemporaryNode: aTemporaryNode [
 	^ aTemporaryNode name asPCG receiveMessage: #asPCGTemporary
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMetaMetaCodeGenerator >> visitThisContextNode: aThisContextNode [
 	^ aThisContextNode name asPCG receiveMessage: #asPCGNode
 ]

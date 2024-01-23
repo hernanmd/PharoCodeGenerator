@@ -1,6 +1,6 @@
-Extension { #name : #SmalltalkImage }
+Extension { #name : 'SmalltalkImage' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 SmalltalkImage >> installPCGPackageDescription: aPCGPackageDescription [
 	| package |
 	(RPackage organizer includesPackageNamed: aPCGPackageDescription name evaluate)

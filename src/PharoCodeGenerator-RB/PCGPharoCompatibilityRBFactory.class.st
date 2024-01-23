@@ -1,51 +1,52 @@
 Class {
-	#name : #PCGPharoCompatibilityRBFactory,
-	#superclass : #Object,
-	#category : #'PharoCodeGenerator-RB'
+	#name : 'PCGPharoCompatibilityRBFactory',
+	#superclass : 'Object',
+	#category : 'PharoCodeGenerator-RB',
+	#package : 'PharoCodeGenerator-RB'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPharoCompatibilityRBFactory class >> argumentNamed: aName [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PCGPharoCompatibilityRBFactory class >> availableFactory [
 	self assert: self subclasses size = 1.
 	^ self subclasses anyOne
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPharoCompatibilityRBFactory class >> globalNamed: aName [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPharoCompatibilityRBFactory class >> instanceVariableNamed: aName [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGPharoCompatibilityRBFactory class >> isAbstract [
 	^ self = PCGPharoCompatibilityRBFactory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPharoCompatibilityRBFactory class >> selfNode [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPharoCompatibilityRBFactory class >> superNode [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPharoCompatibilityRBFactory class >> temporaryVariableNamed: aName [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPharoCompatibilityRBFactory class >> thisContextNode [
 	^ self subclassResponsibility 
 ]

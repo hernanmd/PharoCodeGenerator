@@ -2,16 +2,18 @@
 I provide the DSL for nodes that can be target of a cascade.
 "
 Trait {
-	#name : #PCGTCascadeTarget,
-	#category : #'PharoCodeGenerator-Traits'
+	#name : 'PCGTCascadeTarget',
+	#category : 'PharoCodeGenerator-Traits',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Traits'
 }
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTCascadeTarget >> asCascade [
 	^ self asCascadeTarget
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTCascadeTarget >> asCascadeTarget [
 	^ PCGCascadeNode target: self
 ]

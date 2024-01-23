@@ -1,6 +1,6 @@
-Extension { #name : #CompiledMethod }
+Extension { #name : 'CompiledMethod' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 CompiledMethod >> asPCG [
 	^ self methodClass asPCG
 		receiveMessage: #>> with: self selector asPCG

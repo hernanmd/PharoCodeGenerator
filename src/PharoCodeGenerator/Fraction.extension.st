@@ -1,6 +1,6 @@
-Extension { #name : #Fraction }
+Extension { #name : 'Fraction' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Fraction >> asPCG [
 	^ self numerator asPCG receiveMessage: #/ with: self denominator asPCG
 ]

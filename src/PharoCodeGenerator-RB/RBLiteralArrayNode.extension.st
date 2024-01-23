@@ -1,6 +1,6 @@
-Extension { #name : #RBLiteralArrayNode }
+Extension { #name : 'RBLiteralArrayNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 RBLiteralArrayNode >> isByteArray: aBoolean [
 	isByteArray := aBoolean
 ]

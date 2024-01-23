@@ -2,17 +2,18 @@
 I convert a PCG AST as a Pharo RB AST.
 "
 Class {
-	#name : #PCGStaticConverterToRBAST,
-	#superclass : #PCGStaticConverterToRealAST,
-	#category : #'PharoCodeGenerator-RB'
+	#name : 'PCGStaticConverterToRBAST',
+	#superclass : 'PCGStaticConverterToRealAST',
+	#category : 'PharoCodeGenerator-RB',
+	#package : 'PharoCodeGenerator-RB'
 }
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createArgumentNodeWithName: name [
 	^ self pharoCompatibilityRBFactory argumentNamed: name
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createArrayNodeWithStatements: statements [
 	<generated>
 	^ RBArrayNode new
@@ -20,7 +21,7 @@ PCGStaticConverterToRBAST >> createArrayNodeWithStatements: statements [
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createAssignmentNodeWithVariable: variable value: value [
 	<generated>
 	^ RBAssignmentNode new
@@ -29,7 +30,7 @@ PCGStaticConverterToRBAST >> createAssignmentNodeWithVariable: variable value: v
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createBlockNodeWithArguments: arguments body: body [
 	<generated>
 	^ RBBlockNode new
@@ -38,7 +39,7 @@ PCGStaticConverterToRBAST >> createBlockNodeWithArguments: arguments body: body 
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createCascadeNodeWithMessages: messages [
 	<generated>
 	^ RBCascadeNode new
@@ -46,17 +47,17 @@ PCGStaticConverterToRBAST >> createCascadeNodeWithMessages: messages [
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createGlobalNodeWithName: name [
 	^ self pharoCompatibilityRBFactory globalNamed: name
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createInstanceVariableNodeWithName: name [
 	^ self pharoCompatibilityRBFactory instanceVariableNamed: name
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createLiteralArrayNodeWithContents: contents [
 	^ RBLiteralArrayNode new
 		contents: contents;
@@ -64,7 +65,7 @@ PCGStaticConverterToRBAST >> createLiteralArrayNodeWithContents: contents [
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createLiteralValueNodeWithValue: value [
 	<generated>
 	^ RBLiteralValueNode new
@@ -72,7 +73,7 @@ PCGStaticConverterToRBAST >> createLiteralValueNodeWithValue: value [
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createMessageNodeWithReceiver: receiver selector: selector arguments: arguments [
 	<generated>
 	^ RBMessageNode new
@@ -82,7 +83,7 @@ PCGStaticConverterToRBAST >> createMessageNodeWithReceiver: receiver selector: s
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createMethodNodeWithSelector: selector body: body arguments: arguments pragmas: pragmas [
 	<generated>
 	^ RBMethodNode new
@@ -93,7 +94,7 @@ PCGStaticConverterToRBAST >> createMethodNodeWithSelector: selector body: body a
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createPragmaNodeWithSelector: selector arguments: arguments [
 	<generated>
 	^ RBPragmaNode new
@@ -102,7 +103,7 @@ PCGStaticConverterToRBAST >> createPragmaNodeWithSelector: selector arguments: a
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createReturnNodeWithValue: value [
 	<generated>
 	^ RBReturnNode new
@@ -110,12 +111,12 @@ PCGStaticConverterToRBAST >> createReturnNodeWithValue: value [
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createSelfNodeWithName: name [
 	^ self pharoCompatibilityRBFactory selfNode
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createSequenceNodeWithStatements: statements temporaries: temporaries [
 	<generated>
 	^ RBSequenceNode new
@@ -124,22 +125,22 @@ PCGStaticConverterToRBAST >> createSequenceNodeWithStatements: statements tempor
 		yourself
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createSuperNodeWithName: name [
 	^ self pharoCompatibilityRBFactory superNode
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createTemporaryNodeWithName: name [
 	^ self pharoCompatibilityRBFactory temporaryVariableNamed: name
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> createThisContextNodeWithName: name [
 	^ self pharoCompatibilityRBFactory thisContextNode
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 PCGStaticConverterToRBAST >> pharoCompatibilityRBFactory [
 	^ PCGPharoCompatibilityRBFactory availableFactory
 ]

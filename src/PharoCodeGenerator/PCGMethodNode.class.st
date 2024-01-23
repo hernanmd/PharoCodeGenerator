@@ -3,8 +3,8 @@ I model RBMethodNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGMethodNode,
-	#superclass : #PCGProgramNode,
+	#name : 'PCGMethodNode',
+	#superclass : 'PCGProgramNode',
 	#traits : 'PCGTStatementsStream + PCGTBodyBlock + PCGTWithTemporaries + PCGTInstallableEntity',
 	#classTraits : 'PCGTStatementsStream classTrait + PCGTBodyBlock classTrait + PCGTWithTemporaries classTrait + PCGTInstallableEntity classTrait',
 	#instVars : [
@@ -14,27 +14,29 @@ Class {
 		'#pragmas type: (SequenceableCollection withItemsType: PCGPragmaNode)',
 		'#protocol type: String'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode class >> generatedPragmaSelector [
 	^ #generated
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode class >> instanceVariablesForRealAST [
 	^ #(#selector #body #arguments #pragmas)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGMethodNode class >> selector: selector [ 
 	^ self new
 		selector: selector;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGMethodNode class >> selector: selector arguments: arguments [ 
 	^ self new
 		selector: selector;
@@ -42,7 +44,7 @@ PCGMethodNode class >> selector: selector arguments: arguments [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGMethodNode class >> selector: selector arguments: arguments body: body [ 
 	^ self new
 		selector: selector;
@@ -51,7 +53,7 @@ PCGMethodNode class >> selector: selector arguments: arguments body: body [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGMethodNode class >> selector: selector arguments: arguments pragmas: pragmas body: body [ 
 	^ self new
 		selector: selector;
@@ -61,7 +63,7 @@ PCGMethodNode class >> selector: selector arguments: arguments pragmas: pragmas 
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGMethodNode class >> selector: selector body: body [ 
 	^ self new
 		selector: selector;
@@ -69,14 +71,14 @@ PCGMethodNode class >> selector: selector body: body [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGMethodNode class >> selectorKeywords: anArrayOfSymbols [ 
 	^ self new
 		selectorKeywords: anArrayOfSymbols;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGMethodNode class >> selectorKeywords: anArrayOfSymbols arguments: arguments [ 
 	^ self new
 		selectorKeywords: anArrayOfSymbols;
@@ -84,7 +86,7 @@ PCGMethodNode class >> selectorKeywords: anArrayOfSymbols arguments: arguments [
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGMethodNode >> = anObject [
 	<generated>
 	self == anObject
@@ -97,63 +99,63 @@ PCGMethodNode >> = anObject [
 						and: [ pragmas = anObject pragmas and: [ protocol = anObject protocol ] ] ] ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGMethodNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitMethodNode: self
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragma: aPragmaNode [
 	self pragmas
 		add: aPragmaNode
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol [
 	self addPragmaNamed: aSymbol withAll: Array empty
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol if: conditionBlock [
 	self addPragmaNamed: aSymbol withAll: Array new if: conditionBlock
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol with: arg1 [
 	self addPragmaNamed: aSymbol withAll: { arg1 }
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol with: arg1 if: conditionBlock [
 	self addPragmaNamed: aSymbol withAll: { arg1 } if: conditionBlock
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol with: arg1 with: arg2 [
 	self addPragmaNamed: aSymbol withAll: { arg1. arg2 }
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol with: arg1 with: arg2 if: conditionBlock [
 	self addPragmaNamed: aSymbol withAll: { arg1. arg2 } if: conditionBlock
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol with: arg1 with: arg2 with: arg3 [
 	self addPragmaNamed: aSymbol withAll: { arg1. arg2. arg3 }
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol with: arg1 with: arg2 with: arg3 if: conditionBlock [
 	self addPragmaNamed: aSymbol withAll: { arg1. arg2. arg3 } if: conditionBlock
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol withAll: args [
 	self addPragma: (PCGPragmaNode selector: aSymbol arguments: args)
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> addPragmaNamed: aSymbol withAll: args if: conditionBlock [
 	conditionBlock value
 		ifFalse: [ ^ self ].
@@ -161,64 +163,65 @@ PCGMethodNode >> addPragmaNamed: aSymbol withAll: args if: conditionBlock [
 	^ self addPragmaNamed: aSymbol withAll: args
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> arguments [
 	^ arguments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> arguments: anObject [
+
 	arguments := anObject asOrderedCollection
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGMethodNode >> asExtensionMethod [
 	^ PCGExtensionMethod methodNode: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGMethodNode >> asPCGAST [
 	^ self
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> beReturnedSubclassResponsibility [
 	self bodyBlock: [ :b | b << (#self asPCGNode receiveMessage: #subclassResponsibility) returnIt ]
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> beSubclassResponsibility [
 	self bodyBlock: [ :b | b << (#self asPCGNode receiveMessage: #subclassResponsibility) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> body [
 	^ body
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> body: anObject [
 	body := anObject
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> emptyBody [
 	self bodyBlock: [ :b | ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> generatedPragmaSelector [
 	^ self class generatedPragmaSelector
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGMethodNode >> hash [
 	<generated>
 	^ (((selector hash bitXor: body hash) bitXor: arguments hash)
 		bitXor: pragmas hash) bitXor: protocol hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGMethodNode >> initialize [
 	super initialize.
 	self
@@ -229,35 +232,35 @@ PCGMethodNode >> initialize [
 		withGeneratedPragma
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGMethodNode >> installOn: aBehavior [
 	^ aBehavior installPCGMethod: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGMethodNode >> isInstallationNecessaryOn: aClass [
 	^ [ (aClass includesLocalSelector: self selector) not or: [ self ~= (aClass >> self selector) asPCGAST ] ]
 		on: Error
 		do: [ "If we have an error it's probably because the current AST of the method is not valid. This means we should reinstall." true ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGMethodNode >> isMethod [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> pragmas [
 	^ pragmas
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> pragmas: anObject [
 	pragmas := anObject asOrderedCollection
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PCGMethodNode >> printOn: aStream [
 	super printOn: aStream.
 	aStream nextPut: $(.
@@ -265,49 +268,49 @@ PCGMethodNode >> printOn: aStream [
 	aStream nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> protocol [
 	^ protocol
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> protocol: anObject [
 	protocol := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> selector [
 	^ selector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> selector: anObject [
 	selector := anObject
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> selectorKeywords: anArrayOfSymbols [
 	self selector: (Symbol newFrom: (anArrayOfSymbols size = 1 ifTrue: [ anArrayOfSymbols first ] ifFalse: [ anArrayOfSymbols flatCollect: #yourself ]))
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> statements [
 	^ self body statements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGMethodNode >> temporaries [
 	^ self body temporaries
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> withGeneratedPragma [
 	self pragmas
 		detect: [ :pragma | pragma selector = self generatedPragmaSelector ]
 		ifNone: [ self addPragmaNamed: self generatedPragmaSelector ]
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> withGeneratedPragma: aBoolean [
 	"Dispatch on #withGeneratedPragma if aBoolean is true else dispatch on #withoutGeneratedPragma."
 	aBoolean
@@ -315,7 +318,7 @@ PCGMethodNode >> withGeneratedPragma: aBoolean [
 		ifFalse: [ self withoutGeneratedPragma ]
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGMethodNode >> withoutGeneratedPragma [
 	self pragmas
 		removeAllSuchThat: [ :pragma | pragma selector = self generatedPragmaSelector ]

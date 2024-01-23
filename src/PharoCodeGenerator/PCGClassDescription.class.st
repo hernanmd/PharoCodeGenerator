@@ -1,51 +1,53 @@
 Class {
-	#name : #PCGClassDescription,
-	#superclass : #PCGBehaviorDescription,
+	#name : 'PCGClassDescription',
+	#superclass : 'PCGBehaviorDescription',
 	#instVars : [
 		'superclassName',
 		'classVariables'
 	],
-	#category : #'PharoCodeGenerator-MetaModel'
+	#category : 'PharoCodeGenerator-MetaModel',
+	#package : 'PharoCodeGenerator',
+	#tag : 'MetaModel'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGClassDescription >> classVariables [
 	^ classVariables
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGClassDescription >> classVariables: anObject [
 	classVariables := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGClassDescription >> environment [
 	^ self class environment
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGClassDescription >> initialize [
 	super initialize.
 	self superclassName: Object.
 	self classVariables: #()
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGClassDescription >> installOn: aRPackage [
 	^ aRPackage installPCGClass: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGClassDescription >> isPCGClass [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGClassDescription >> superclassName [
 	^ superclassName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGClassDescription >> superclassName: anObject [
 	superclassName := anObject asPCG
 ]

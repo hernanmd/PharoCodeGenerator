@@ -1,6 +1,6 @@
-Extension { #name : #PCGMessageNode }
+Extension { #name : 'PCGMessageNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 PCGMessageNode class >> classForRealAST [
 	^ RBMessageNode
 ]

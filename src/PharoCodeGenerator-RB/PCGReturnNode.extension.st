@@ -1,6 +1,6 @@
-Extension { #name : #PCGReturnNode }
+Extension { #name : 'PCGReturnNode' }
 
-{ #category : #'*PharoCodeGenerator-RB' }
+{ #category : '*PharoCodeGenerator-RB' }
 PCGReturnNode class >> classForRealAST [
 	^ RBReturnNode
 ]

@@ -1,6 +1,6 @@
-Extension { #name : #KMCtrlModifier }
+Extension { #name : 'KMCtrlModifier' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 KMCtrlModifier >> asPCG [
 	^ KMModifier asPCG receiveMessage: #ctrl
 ]

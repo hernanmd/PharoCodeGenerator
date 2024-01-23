@@ -2,16 +2,18 @@
 I am a notification created when a PCG method is about to be installed on a class.
 "
 Class {
-	#name : #PCGAboutToBeInstalled,
-	#superclass : #Notification,
+	#name : 'PCGAboutToBeInstalled',
+	#superclass : 'Notification',
 	#instVars : [
 		'installTarget',
 		'entity'
 	],
-	#category : #'PharoCodeGenerator-Notifications'
+	#category : 'PharoCodeGenerator-Notifications',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Notifications'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGAboutToBeInstalled class >> signalForEntity: method installTarget: classToInstallOn [
 	<generated>
 	^ self new
@@ -20,22 +22,22 @@ PCGAboutToBeInstalled class >> signalForEntity: method installTarget: classToIns
 		signal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAboutToBeInstalled >> entity [
 	^ entity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAboutToBeInstalled >> entity: anObject [
 	entity := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAboutToBeInstalled >> installTarget [
 	^ installTarget
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAboutToBeInstalled >> installTarget: anObject [
 	installTarget := anObject
 ]

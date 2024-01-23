@@ -2,15 +2,17 @@
 I am the warning raised when an attempt is made to install a method in a class where there is already a method with the same selector that has no <generated> pragma.
 "
 Class {
-	#name : #PCGHandwrittenMethodAlreadyExist,
-	#superclass : #Warning,
+	#name : 'PCGHandwrittenMethodAlreadyExist',
+	#superclass : 'Warning',
 	#instVars : [
 		'method'
 	],
-	#category : #'PharoCodeGenerator-Errors'
+	#category : 'PharoCodeGenerator-Errors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Errors'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGHandwrittenMethodAlreadyExist class >> signalForMethod: method [
 	<generated>
 	^ self new
@@ -18,12 +20,12 @@ PCGHandwrittenMethodAlreadyExist class >> signalForMethod: method [
 		signal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGHandwrittenMethodAlreadyExist >> method [
 	^ method
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGHandwrittenMethodAlreadyExist >> method: anObject [
 	method := anObject
 ]

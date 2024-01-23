@@ -1,6 +1,6 @@
-Extension { #name : #ClassDescription }
+Extension { #name : 'ClassDescription' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 ClassDescription >> asPCG [
 	| ast |
 	ast := self instanceSide name asPCGGlobal.

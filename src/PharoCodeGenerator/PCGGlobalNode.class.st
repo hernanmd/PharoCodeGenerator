@@ -3,24 +3,26 @@ I model RBGlobalNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGGlobalNode,
-	#superclass : #PCGVariableNode,
+	#name : 'PCGGlobalNode',
+	#superclass : 'PCGVariableNode',
 	#traits : 'PCGTAssignmentTarget',
 	#classTraits : 'PCGTAssignmentTarget classTrait',
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGGlobalNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitGlobalNode: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGGlobalNode >> asPCGGlobal [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGGlobalNode >> isGlobal [
 	<generated>
 	^ true

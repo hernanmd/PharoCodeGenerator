@@ -3,27 +3,29 @@ I model RBLiteralArrayNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGLiteralArrayNode,
-	#superclass : #PCGLiteralNode,
+	#name : 'PCGLiteralArrayNode',
+	#superclass : 'PCGLiteralNode',
 	#instVars : [
 		'#contents type: (SequenceableCollection withItemsType: PCGLiteralNode)'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGLiteralArrayNode class >> contents: contents [ 
 	^ self new
 		contents: contents;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGLiteralArrayNode class >> instanceVariablesForRealAST [
 	^ #(#contents)
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGLiteralArrayNode >> = anObject [
 	<generated>
 	self == anObject
@@ -33,28 +35,28 @@ PCGLiteralArrayNode >> = anObject [
 	^ contents = anObject contents
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGLiteralArrayNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitLiteralArrayNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGLiteralArrayNode >> contents [
 	^ contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGLiteralArrayNode >> contents: anObject [
 	contents := anObject
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGLiteralArrayNode >> hash [
 	<generated>
 	^ contents hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGLiteralArrayNode >> isLiteralArray [
 	<generated>
 	^ true

@@ -3,28 +3,30 @@ I model RBPragmaNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGPragmaNode,
-	#superclass : #PCGProgramNode,
+	#name : 'PCGPragmaNode',
+	#superclass : 'PCGProgramNode',
 	#instVars : [
 		'#selector type: Symbol',
 		'#arguments type: (SequenceableCollection withItemsType: PCGLiteralNode)'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPragmaNode class >> instanceVariablesForRealAST [
 	^ #(#selector #arguments)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGPragmaNode class >> selector: selector [ 
 	^ self new
 		selector: selector;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGPragmaNode class >> selector: selector arguments: arguments [ 
 	^ self new
 		selector: selector;
@@ -32,7 +34,7 @@ PCGPragmaNode class >> selector: selector arguments: arguments [
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGPragmaNode >> = anObject [
 	<generated>
 	self == anObject
@@ -43,45 +45,45 @@ PCGPragmaNode >> = anObject [
 		and: [ arguments = anObject arguments ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGPragmaNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitPragmaNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPragmaNode >> arguments [
 	^ arguments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPragmaNode >> arguments: anObject [
 	arguments := anObject asOrderedCollection
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGPragmaNode >> hash [
 	<generated>
 	^ selector hash bitXor: arguments hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGPragmaNode >> initialize [
 	super initialize.
 	self arguments: OrderedCollection new.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGPragmaNode >> isPragma [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPragmaNode >> selector [
 	^ selector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGPragmaNode >> selector: anObject [
 	selector := anObject
 ]

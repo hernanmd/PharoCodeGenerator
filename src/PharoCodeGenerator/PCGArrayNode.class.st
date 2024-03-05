@@ -3,29 +3,31 @@ I model RBArrayNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGArrayNode,
-	#superclass : #PCGValueNode,
+	#name : 'PCGArrayNode',
+	#superclass : 'PCGValueNode',
 	#traits : 'PCGTMessageReceiver',
 	#classTraits : 'PCGTMessageReceiver classTrait',
 	#instVars : [
 		'#statements type: (SequenceableCollection withItemsType: PCGTStatement)'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGArrayNode class >> instanceVariablesForRealAST [
 	^ #(#statements)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGArrayNode class >> statements: statements [ 
 	^ self new
 		statements: statements;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGArrayNode >> = anObject [
 	<generated>
 	self == anObject
@@ -35,29 +37,29 @@ PCGArrayNode >> = anObject [
 	^ statements = anObject statements
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGArrayNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitArrayNode: self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGArrayNode >> hash [
 	<generated>
 	^ statements hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGArrayNode >> isArray [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGArrayNode >> statements [
 	^ statements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGArrayNode >> statements: anObject [
 	statements := anObject asOrderedCollection
 ]

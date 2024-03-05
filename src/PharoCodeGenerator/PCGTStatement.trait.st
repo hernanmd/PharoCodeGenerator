@@ -2,11 +2,13 @@
 I am used to type nodes of the AST that can appear as a statement.
 "
 Trait {
-	#name : #PCGTStatement,
-	#category : #'PharoCodeGenerator-Traits'
+	#name : 'PCGTStatement',
+	#category : 'PharoCodeGenerator-Traits',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Traits'
 }
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTStatement >> inBlock [
 	^ PCGBlockNode bodyBlock: [ :body | body << self ]
 ]

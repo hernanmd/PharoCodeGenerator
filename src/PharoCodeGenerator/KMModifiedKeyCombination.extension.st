@@ -1,6 +1,6 @@
-Extension { #name : #KMModifiedKeyCombination }
+Extension { #name : 'KMModifiedKeyCombination' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 KMModifiedKeyCombination >> asPCG [
 	^ self modifier asPCG receiveMessage: #+ with: self character asPCG
 ]

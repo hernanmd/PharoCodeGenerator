@@ -1,6 +1,6 @@
-Extension { #name : #Number }
+Extension { #name : 'Number' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Number >> asPCG [
 	^ PCGLiteralValueNode value: self
 ]

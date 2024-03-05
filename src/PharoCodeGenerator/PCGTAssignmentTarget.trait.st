@@ -2,11 +2,13 @@
 I provide the DSL for get values assigned.
 "
 Trait {
-	#name : #PCGTAssignmentTarget,
-	#category : #'PharoCodeGenerator-Traits'
+	#name : 'PCGTAssignmentTarget',
+	#category : 'PharoCodeGenerator-Traits',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Traits'
 }
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTAssignmentTarget >> assign: anObject [
 	^ anObject asPCG assignTo: self
 ]

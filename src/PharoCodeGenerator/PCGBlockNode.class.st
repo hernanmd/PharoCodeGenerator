@@ -3,25 +3,27 @@ I model RBBlockNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGBlockNode,
-	#superclass : #PCGValueNode,
+	#name : 'PCGBlockNode',
+	#superclass : 'PCGValueNode',
 	#traits : 'PCGTStatementsStream + PCGTBodyBlock + PCGTWithTemporaries + PCGTStatement',
 	#classTraits : 'PCGTStatementsStream classTrait + PCGTBodyBlock classTrait + PCGTWithTemporaries classTrait + PCGTStatement classTrait',
 	#instVars : [
-		'#arguments type: (SequenceableCollection withItemsType: PCGArgumentNode)',
+		'#arguments type:\r\t(SequenceableCollection withItemsType: PCGArgumentNode)',
 		'#body type: PCGSequenceNode'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGBlockNode class >> arguments: arguments [
 	^ self new
 		arguments: arguments;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGBlockNode class >> arguments: arguments body: body [ 
 	^ self new
 		arguments: arguments;
@@ -29,19 +31,19 @@ PCGBlockNode class >> arguments: arguments body: body [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGBlockNode class >> body: body [ 
 	^ self new
 		body: body;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBlockNode class >> instanceVariablesForRealAST [
 	^ #(#arguments #body)
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGBlockNode >> = anObject [
 	<generated>
 	self == anObject
@@ -51,55 +53,55 @@ PCGBlockNode >> = anObject [
 	^ arguments = anObject arguments and: [ body = anObject body ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGBlockNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitBlockNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBlockNode >> arguments [
 	^ arguments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBlockNode >> arguments: anObject [
 	arguments := anObject asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBlockNode >> body [
 	^ body
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBlockNode >> body: anObject [
 	body := anObject
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGBlockNode >> hash [
 	<generated>
 	^ arguments hash bitXor: body hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGBlockNode >> initialize [
 	super initialize.
 	self arguments: OrderedCollection new.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGBlockNode >> isBlock [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBlockNode >> statements [
 	^ self body statements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBlockNode >> temporaries [
 	^ self body temporaries
 ]

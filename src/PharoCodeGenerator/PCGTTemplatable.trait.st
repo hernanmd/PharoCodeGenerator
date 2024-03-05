@@ -1,9 +1,11 @@
 Trait {
-	#name : #PCGTTemplatable,
-	#category : #'PharoCodeGenerator-Traits'
+	#name : 'PCGTTemplatable',
+	#category : 'PharoCodeGenerator-Traits',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Traits'
 }
 
-{ #category : #'parameters-substitution' }
+{ #category : 'parameters-substitution' }
 PCGTTemplatable >> substituteParametersWith: anObject [
 	^ PCGStaticParametersReplacer new
 		context: anObject asDictionary;

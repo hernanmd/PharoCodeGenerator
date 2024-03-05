@@ -3,137 +3,139 @@ I model the absence of a node. I am the implementation of the null object design
 I am used for nodes that do not have a parent.
 "
 Class {
-	#name : #PCGNullNode,
-	#superclass : #Object,
-	#category : #'PharoCodeGenerator-AST'
+	#name : 'PCGNullNode',
+	#superclass : 'Object',
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isArgument [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isArray [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isAssignment [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isBlock [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isCascade [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isGlobal [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isInstanceVariable [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isLiteral [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isLiteralArray [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isLiteralValue [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isMessage [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isMethod [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isNull [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isPragma [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isReturn [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isSelf [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isSequence [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isSuper [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isTemporary [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isThisContext [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isValue [
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGNullNode >> isVariable [
 	<generated>
 	^ false

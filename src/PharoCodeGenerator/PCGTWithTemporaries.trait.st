@@ -2,16 +2,18 @@
 I provide the DSL for nodes that wrap a body and need to get temporary variable declaration.
 "
 Trait {
-	#name : #PCGTWithTemporaries,
-	#category : #'PharoCodeGenerator-Traits'
+	#name : 'PCGTWithTemporaries',
+	#category : 'PharoCodeGenerator-Traits',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Traits'
 }
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTWithTemporaries >> addTemporary: aTemporaryNode [
 	self temporaries add: aTemporaryNode asPCG
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTWithTemporaries >> temporaries [
 	^ self explicitRequirement
 ]

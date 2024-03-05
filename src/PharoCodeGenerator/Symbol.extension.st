@@ -1,21 +1,21 @@
-Extension { #name : #Symbol }
+Extension { #name : 'Symbol' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Symbol >> asPCGArgument [
 	^ PCGArgumentNode name: self
 ]
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Symbol >> asPCGGlobal [
 	^ PCGGlobalNode name: self
 ]
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Symbol >> asPCGInstanceVariable [
 	^ PCGInstanceVariableNode name: self
 ]
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Symbol >> asPCGNode [
 	"Returns a PCG node by evaluating myself against PCGProgramNode.
 	
@@ -36,12 +36,12 @@ Symbol >> asPCGNode [
 	self error: 'Symbol can not be converted as PCG node.'
 ]
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Symbol >> asPCGTemplateParameter [
 	^ PCGTemplateParameter name: self
 ]
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Symbol >> asPCGTemporary [
 	^ PCGTemporaryNode name: self
 ]

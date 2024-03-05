@@ -1,11 +1,11 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Object >> isPCGObject [
 	^ false
 ]
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Object >> isPCGProgramNode [
 	^ false
 ]

@@ -1,7 +1,7 @@
-Extension { #name : #RPackageTag }
+Extension { #name : 'PackageTag' }
 
-{ #category : #'*PharoCodeGenerator' }
-RPackageTag >> installPCGClass: aPCGClassDescription [
+{ #category : '*PharoCodeGenerator' }
+PackageTag >> installPCGClass: aPCGClassDescription [
 	| classInstalled |
 	classInstalled := aPCGClassDescription superclassName evaluate
 		subclass: aPCGClassDescription name evaluate
@@ -17,8 +17,8 @@ RPackageTag >> installPCGClass: aPCGClassDescription [
 	^ classInstalled
 ]
 
-{ #category : #'*PharoCodeGenerator' }
-RPackageTag >> installPCGTrait: aPCGTraitDescription [
+{ #category : '*PharoCodeGenerator' }
+PackageTag >> installPCGTrait: aPCGTraitDescription [
 	| traitInstalled |
 	traitInstalled := Trait
 		named: aPCGTraitDescription name evaluate

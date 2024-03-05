@@ -3,30 +3,32 @@ I model RBSequenceNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGSequenceNode,
-	#superclass : #PCGProgramNode,
+	#name : 'PCGSequenceNode',
+	#superclass : 'PCGProgramNode',
 	#traits : 'PCGTStatementsStream + PCGTWithTemporaries',
 	#classTraits : 'PCGTStatementsStream classTrait + PCGTWithTemporaries classTrait',
 	#instVars : [
 		'#statements type: (SequenceableCollection withItemsType: PCGTStatement)',
-		'#temporaries type: (SequenceableCollection withItemsType: PCGTemporaryNode)'
+		'#temporaries type:\r\t(SequenceableCollection withItemsType: PCGTemporaryNode)'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGSequenceNode class >> instanceVariablesForRealAST [
 	^ #(#statements #temporaries)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGSequenceNode class >> statements: statements [ 
 	^ self new
 		statements: statements;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGSequenceNode class >> temporaries: temporaries statements: statements [ 
 	^ self new
 		temporaries: temporaries;
@@ -34,7 +36,7 @@ PCGSequenceNode class >> temporaries: temporaries statements: statements [
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGSequenceNode >> = anObject [
 	<generated>
 	self == anObject
@@ -45,46 +47,46 @@ PCGSequenceNode >> = anObject [
 		and: [ temporaries = anObject temporaries ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGSequenceNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitSequenceNode: self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGSequenceNode >> hash [
 	<generated>
 	^ statements hash bitXor: temporaries hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGSequenceNode >> initialize [
 	super initialize.
 	self temporaries: OrderedCollection new.
 	self statements: OrderedCollection new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGSequenceNode >> isSequence [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGSequenceNode >> statements [
 	^ statements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGSequenceNode >> statements: anObject [
 	statements := anObject asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGSequenceNode >> temporaries [
 	^ temporaries
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGSequenceNode >> temporaries: anObject [
 	temporaries := anObject asOrderedCollection
 ]

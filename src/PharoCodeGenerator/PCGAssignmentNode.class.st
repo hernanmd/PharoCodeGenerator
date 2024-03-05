@@ -3,21 +3,23 @@ I model RBAssignmentNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGAssignmentNode,
-	#superclass : #PCGValueNode,
+	#name : 'PCGAssignmentNode',
+	#superclass : 'PCGValueNode',
 	#instVars : [
 		'#variable type: PCGVariableNode',
 		'#value type: PCGTAssignable'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAssignmentNode class >> instanceVariablesForRealAST [
 	^ #(#variable #value)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGAssignmentNode class >> variable: variable value: value [ 
 	^ self new
 		variable: variable;
@@ -25,7 +27,7 @@ PCGAssignmentNode class >> variable: variable value: value [
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGAssignmentNode >> = anObject [
 	<generated>
 	self == anObject
@@ -35,39 +37,39 @@ PCGAssignmentNode >> = anObject [
 	^ variable = anObject variable and: [ value = anObject value ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGAssignmentNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitAssignmentNode: self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGAssignmentNode >> hash [
 	<generated>
 	^ variable hash bitXor: value hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGAssignmentNode >> isAssignment [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAssignmentNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAssignmentNode >> value: anObject [
 	value := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAssignmentNode >> variable [
 	^ variable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGAssignmentNode >> variable: anObject [
 	variable := anObject
 ]

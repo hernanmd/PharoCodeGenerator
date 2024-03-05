@@ -2,12 +2,14 @@
 I ensure that the PCG AST is ready to be converted to a real AST.
 "
 Class {
-	#name : #PCGASTChecker,
-	#superclass : #PCGGenericVisitor,
-	#category : #'PharoCodeGenerator-Visitors'
+	#name : 'PCGASTChecker',
+	#superclass : 'PCGGenericVisitor',
+	#category : 'PharoCodeGenerator-Visitors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Visitors'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> checkMethodOrMessageNode: aMethodOrMessageNode [
 	"Binary selector"
 	(aMethodOrMessageNode selector allSatisfy: #isSpecial)
@@ -19,7 +21,7 @@ PCGASTChecker >> checkMethodOrMessageNode: aMethodOrMessageNode [
 	self checkMethodOrMessageNodeWithNormalSelector: aMethodOrMessageNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> checkMethodOrMessageNodeWithBinarySelector: aMethodOrMessageNode [
 	aMethodOrMessageNode arguments size = 1
 		ifFalse: [
@@ -27,7 +29,7 @@ PCGASTChecker >> checkMethodOrMessageNodeWithBinarySelector: aMethodOrMessageNod
 				signal: 'Inconsistent number of arguments compared to method selector.' ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> checkMethodOrMessageNodeWithNormalSelector: aMethodOrMessageNode [
 	(aMethodOrMessageNode selector count: [ :c | c = $: ])
 		~= aMethodOrMessageNode arguments size
@@ -35,36 +37,36 @@ PCGASTChecker >> checkMethodOrMessageNodeWithNormalSelector: aMethodOrMessageNod
 				signal: 'Inconsistent number of arguments compared to method selector.' ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> visitCascadeNode: aCascadeNode [
 	super visitCascadeNode: aCascadeNode.
 	aCascadeNode messages ifEmpty: [ PCGASTInvalidForTranslation signal: 'A cascade can not be empty.' ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> visitCompositeTemplateParameter: aCompositeTemplateParameter [
 	PCGASTInvalidForTranslation signal: 'The AST still contains a template parameter and is thus not ready for conversion to real AST.'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> visitMessageNode: aMessageNode [
 	self checkMethodOrMessageNode: aMessageNode.
 	^ super visitMessageNode: aMessageNode.
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> visitMethodNode: aMethodNode [
 	self checkMethodOrMessageNode: aMethodNode.
 	^ super visitMethodNode: aMethodNode.
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> visitPragmaNode: aMessageNode [
 	self checkMethodOrMessageNode: aMessageNode.
 	^ super visitPragmaNode: aMessageNode.
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> visitProgramNode: aProgramNode [
 	aProgramNode instanceVariablesForRealAST do: [ :instVarName |
 		((instVarName value: aProgramNode) isNil and: [ aProgramNode class ~= PCGLiteralValueNode ])
@@ -80,7 +82,7 @@ PCGASTChecker >> visitProgramNode: aProgramNode [
 					ifTrue: [ self visit: (slot read: aProgramNode) ] ] ].
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGASTChecker >> visitTemplateParameter: aTemplateParameter [
 	PCGASTInvalidForTranslation signal: 'The AST still contains a template parameter and is thus not ready for conversion to real AST.'
 ]

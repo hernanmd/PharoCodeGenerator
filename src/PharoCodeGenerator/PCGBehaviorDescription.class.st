@@ -1,6 +1,6 @@
 Class {
-	#name : #PCGBehaviorDescription,
-	#superclass : #Object,
+	#name : 'PCGBehaviorDescription',
+	#superclass : 'Object',
 	#traits : 'PCGTInstallableEntity',
 	#classTraits : 'PCGTInstallableEntity classTrait',
 	#instVars : [
@@ -9,15 +9,17 @@ Class {
 		'traitCompositionUsed',
 		'slotsDeclaration'
 	],
-	#category : #'PharoCodeGenerator-MetaModel'
+	#category : 'PharoCodeGenerator-MetaModel',
+	#package : 'PharoCodeGenerator',
+	#tag : 'MetaModel'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGBehaviorDescription >> asPCGGlobal [
 	^ self name evaluate asSymbol asPCGGlobal
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGBehaviorDescription >> initialize [
 	super initialize.
 	self methods: OrderedCollection new.
@@ -25,7 +27,7 @@ PCGBehaviorDescription >> initialize [
 	self traitCompositionUsed: {} asPCG
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGBehaviorDescription >> installPCGMethod: aPCGMethodNode [
 	self methods
 		detect: [ :m | m selector = aPCGMethodNode selector ]
@@ -35,42 +37,42 @@ PCGBehaviorDescription >> installPCGMethod: aPCGMethodNode [
 		add: aPCGMethodNode
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGBehaviorDescription >> isPCGClass [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGBehaviorDescription >> isPCGObject [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGBehaviorDescription >> isPCGTrait [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> methods [
 	^ methods
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> methods: anObject [
 	methods := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> name: anObject [
 	name := anObject asPCG
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PCGBehaviorDescription >> printOn: aStream [
 	super printOn: aStream.
 	aStream nextPut: $(.
@@ -78,22 +80,22 @@ PCGBehaviorDescription >> printOn: aStream [
 	aStream nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> slotsDeclaration [
 	^ slotsDeclaration
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> slotsDeclaration: anObject [
 	slotsDeclaration := anObject asPCG
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> traitCompositionUsed [
 	^ traitCompositionUsed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGBehaviorDescription >> traitCompositionUsed: anObject [
 	traitCompositionUsed := anObject asPCG
 ]

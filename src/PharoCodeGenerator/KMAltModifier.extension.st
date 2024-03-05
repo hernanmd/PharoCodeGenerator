@@ -1,6 +1,6 @@
-Extension { #name : #KMAltModifier }
+Extension { #name : 'KMAltModifier' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 KMAltModifier >> asPCG [
 	^ KMModifier asPCG receiveMessage: #alt
 ]

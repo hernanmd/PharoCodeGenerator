@@ -2,15 +2,17 @@
 I am the error created when some parameters of a template context are not set during substitution.
 "
 Class {
-	#name : #PCGIncompleteTemplateContext,
-	#superclass : #PCGError,
+	#name : 'PCGIncompleteTemplateContext',
+	#superclass : 'PCGError',
 	#instVars : [
 		'missingParameter'
 	],
-	#category : #'PharoCodeGenerator-Errors'
+	#category : 'PharoCodeGenerator-Errors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Errors'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGIncompleteTemplateContext class >> missingParameter: missingParameter [
 	<generated>
 	^ self new
@@ -18,12 +20,12 @@ PCGIncompleteTemplateContext class >> missingParameter: missingParameter [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGIncompleteTemplateContext >> missingParameter [
 	^ missingParameter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGIncompleteTemplateContext >> missingParameter: anObject [
 	missingParameter := anObject
 ]

@@ -3,37 +3,39 @@ I model RBCascadeNode node for generating Pharo code.
 I define a lighter API that aims to ease AST nodes composition.
 "
 Class {
-	#name : #PCGCascadeNode,
-	#superclass : #PCGValueNode,
+	#name : 'PCGCascadeNode',
+	#superclass : 'PCGValueNode',
 	#traits : 'PCGTMessageReceiver + PCGTStatement',
 	#classTraits : 'PCGTMessageReceiver classTrait + PCGTStatement classTrait',
 	#instVars : [
 		'#target type: PCGValueNode',
 		'#messages type: (SequenceableCollection withItemsType: PCGMessageNode)'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGCascadeNode class >> instanceVariablesForRealAST [
 	^ #(#messages)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGCascadeNode class >> messages: messages [ 
 	^ self new
 		messages: messages;
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGCascadeNode class >> target: target [
 	^ self new
 		target: target;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGCascadeNode >> = anObject [
 	<generated>
 	self == anObject
@@ -43,57 +45,57 @@ PCGCascadeNode >> = anObject [
 	^ target = anObject target and: [ messages = anObject messages ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGCascadeNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitCascadeNode: self
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 PCGCascadeNode >> addMessage: aMessageNode [
 	aMessageNode receiver: self target.
 	self messages add: aMessageNode
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PCGCascadeNode >> buildMessageNode: aSymbol withAll: arguments [
 	"Here we override the message to change the receiver to be the target of cascade."
 	^ self addMessage: (PCGMessageNode receiver: self target selector: aSymbol arguments: arguments)
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGCascadeNode >> hash [
 	<generated>
 	^ target hash bitXor: messages hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGCascadeNode >> initialize [
 	super initialize.
 	self messages: OrderedCollection new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGCascadeNode >> isCascade [
 	<generated>
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGCascadeNode >> messages [
 	^ messages
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGCascadeNode >> messages: anObject [
 	messages := anObject asOrderedCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGCascadeNode >> target [
 	^ target
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGCascadeNode >> target: anObject [
 	target := anObject.
 	self messages do: [ :m |

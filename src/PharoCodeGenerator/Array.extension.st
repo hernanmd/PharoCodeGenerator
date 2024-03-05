@@ -1,6 +1,6 @@
-Extension { #name : #Array }
+Extension { #name : 'Array' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Array >> asPCG [
 	^ PCGArrayNode statements: (self collect: #asPCG)
 ]

@@ -1,6 +1,6 @@
-Extension { #name : #KMShiftModifier }
+Extension { #name : 'KMShiftModifier' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 KMShiftModifier >> asPCG [
 	^ KMModifier asPCG receiveMessage: #shift
 ]

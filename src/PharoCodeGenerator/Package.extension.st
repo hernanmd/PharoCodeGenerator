@@ -1,7 +1,7 @@
-Extension { #name : #RPackage }
+Extension { #name : 'Package' }
 
-{ #category : #'*PharoCodeGenerator' }
-RPackage >> installPCGClass: aPCGClassDescription [
+{ #category : '*PharoCodeGenerator' }
+Package >> installPCGClass: aPCGClassDescription [
 	| classInstalled |
 	classInstalled := aPCGClassDescription superclassName evaluate
 		subclass: aPCGClassDescription name evaluate
@@ -15,8 +15,8 @@ RPackage >> installPCGClass: aPCGClassDescription [
 	^ classInstalled
 ]
 
-{ #category : #'*PharoCodeGenerator' }
-RPackage >> installPCGExtensionMethod: aPCGExtensionMethod [
+{ #category : '*PharoCodeGenerator' }
+Package >> installPCGExtensionMethod: aPCGExtensionMethod [
 	| installedMethod |
 	installedMethod := aPCGExtensionMethod methodNode
 								protocol: ('*' , self name);
@@ -27,8 +27,8 @@ RPackage >> installPCGExtensionMethod: aPCGExtensionMethod [
 	^ installedMethod
 ]
 
-{ #category : #'*PharoCodeGenerator' }
-RPackage >> installPCGPackageTagDescription: aPCGPackageTagDescription [
+{ #category : '*PharoCodeGenerator' }
+Package >> installPCGPackageTagDescription: aPCGPackageTagDescription [
 	| tag |
 	(self includesClassTagNamed: aPCGPackageTagDescription name evaluate)
 		ifTrue: [ self halt: #TODO "Raise notification" ].
@@ -43,8 +43,8 @@ RPackage >> installPCGPackageTagDescription: aPCGPackageTagDescription [
 	^ tag
 ]
 
-{ #category : #'*PharoCodeGenerator' }
-RPackage >> installPCGTrait: aPCGTraitDescription [
+{ #category : '*PharoCodeGenerator' }
+Package >> installPCGTrait: aPCGTraitDescription [
 	| traitInstalled |
 	traitInstalled := Trait
 		named: aPCGTraitDescription name evaluate

@@ -2,7 +2,9 @@
 I am an abstract superclass for errors that are created during translation from PharoCodeGenerator AST to Pharo's AST.
 "
 Class {
-	#name : #PCGTranslationError,
-	#superclass : #PCGError,
-	#category : #'PharoCodeGenerator-Errors'
+	#name : 'PCGTranslationError',
+	#superclass : 'PCGError',
+	#category : 'PharoCodeGenerator-Errors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Errors'
 }

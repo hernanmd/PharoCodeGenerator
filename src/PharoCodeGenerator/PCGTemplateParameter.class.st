@@ -4,30 +4,32 @@ I am a parameter node for AST.
 I allow one to create parametrisable AST that can get an arbitrary sub-tree to substitute myself.
 "
 Class {
-	#name : #PCGTemplateParameter,
-	#superclass : #PCGProgramNode,
+	#name : 'PCGTemplateParameter',
+	#superclass : 'PCGProgramNode',
 	#traits : 'PCGTReturnable + PCGTAssignable + PCGTCascadeTarget + PCGTStatement + PCGTMessageReceiver + PCGTAssignmentTarget',
 	#classTraits : 'PCGTReturnable classTrait + PCGTAssignable classTrait + PCGTCascadeTarget classTrait + PCGTStatement classTrait + PCGTMessageReceiver classTrait + PCGTAssignmentTarget classTrait',
 	#instVars : [
 		'#name type: Symbol',
 		'#transformationBlock interface: #(#value:)'
 	],
-	#category : #'PharoCodeGenerator-AST'
+	#category : 'PharoCodeGenerator-AST',
+	#package : 'PharoCodeGenerator',
+	#tag : 'AST'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGTemplateParameter class >> name: name [
 	^ self new
 		name: name;
 		yourself
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTemplateParameter >> , aTemplateParameter [
 	^ self with: aTemplateParameter
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGTemplateParameter >> = anObject [
 	<generated>
 	self == anObject
@@ -38,64 +40,64 @@ PCGTemplateParameter >> = anObject [
 		and: [ transformationBlock = anObject transformationBlock ]
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTemplateParameter >> => aBlock [
 	self transformationBlock: aBlock
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGTemplateParameter >> acceptVisitor: aVisitor [
 	^ aVisitor visitTemplateParameter: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGTemplateParameter >> asPCGTemplateParameter [
 	^ self
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTemplateParameter >> beArgument [
 	^ self => #asPCGArgument
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTemplateParameter >> beGlobal [
 	^ self => #asPCGGlobal
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTemplateParameter >> beInstanceVariable [
 	^ self => #asPCGInstanceVariable
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTemplateParameter >> beTemporary [
 	^ self => #asPCGTemporary
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 PCGTemplateParameter >> hash [
 	<generated>
 	^ name hash bitXor: transformationBlock hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGTemplateParameter >> initialize [
 	super initialize.
 	self transformationBlock: [ :x | x ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTemplateParameter >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTemplateParameter >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 PCGTemplateParameter >> printOn: aStream [
 	super printOn: aStream.
 	aStream nextPut: $(.
@@ -105,22 +107,22 @@ PCGTemplateParameter >> printOn: aStream [
 	aStream nextPut: $)
 ]
 
-{ #category : #transforming }
+{ #category : 'transforming' }
 PCGTemplateParameter >> transform: anObject [
 	^ self transformationBlock value: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTemplateParameter >> transformationBlock [
 	^ transformationBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTemplateParameter >> transformationBlock: aValuable [
 	transformationBlock := aValuable
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 PCGTemplateParameter >> with: aTemplateParameter [
 	^ PCGCompositeTemplateParameter new
 		addParameter: self;

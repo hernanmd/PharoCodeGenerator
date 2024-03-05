@@ -2,25 +2,27 @@
 I substitute PCGTemplateParameterNodes with objects for which its key is equal to the template parameter name in my #context.
 "
 Class {
-	#name : #PCGStaticParametersReplacer,
-	#superclass : #PCGStaticASTCopier,
+	#name : 'PCGStaticParametersReplacer',
+	#superclass : 'PCGStaticASTCopier',
 	#instVars : [
 		'context'
 	],
-	#category : #'PharoCodeGenerator-Visitors'
+	#category : 'PharoCodeGenerator-Visitors',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Visitors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGStaticParametersReplacer >> context [
 	^ context
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGStaticParametersReplacer >> context: anObject [
 	context := anObject
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitArrayNode: anArrayNode [
 	<generated>
 	^ PCGArrayNode new
@@ -30,7 +32,7 @@ PCGStaticParametersReplacer >> visitArrayNode: anArrayNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitBlockNode: aBlockNode [
 	<generated>
 	^ PCGBlockNode new
@@ -41,7 +43,7 @@ PCGStaticParametersReplacer >> visitBlockNode: aBlockNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitCascadeNode: aCascadeNode [
 	<generated>
 	^ PCGCascadeNode new
@@ -52,7 +54,7 @@ PCGStaticParametersReplacer >> visitCascadeNode: aCascadeNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitCompositeTemplateParameter: aCompositeTemplateParameter [
 	aCompositeTemplateParameter templateParameters
 		detect: [ :p | (self context includesKey: p name) not ]
@@ -62,7 +64,7 @@ PCGStaticParametersReplacer >> visitCompositeTemplateParameter: aCompositeTempla
 	^ PCGStaticASTCopier visit: (aCompositeTemplateParameter transform: (aCompositeTemplateParameter templateParameters collect: [ :p | self context at: p name ]))
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitLiteralArrayNode: aLiteralArrayNode [
 	<generated>
 	^ PCGLiteralArrayNode new
@@ -72,7 +74,7 @@ PCGStaticParametersReplacer >> visitLiteralArrayNode: aLiteralArrayNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitMessageNode: aMessageNode [
 	<generated>
 	^ PCGMessageNode new
@@ -84,7 +86,7 @@ PCGStaticParametersReplacer >> visitMessageNode: aMessageNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitMethodNode: aMethodNode [
 	^ aMethodNode class new
 		selector: (self visit: aMethodNode selector);
@@ -99,7 +101,7 @@ PCGStaticParametersReplacer >> visitMethodNode: aMethodNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitPragmaNode: aPragmaNode [
 	<generated>
 	^ PCGPragmaNode new
@@ -110,7 +112,7 @@ PCGStaticParametersReplacer >> visitPragmaNode: aPragmaNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitSequenceNode: aSequenceNode [
 	<generated>
 	^ PCGSequenceNode new
@@ -123,7 +125,7 @@ PCGStaticParametersReplacer >> visitSequenceNode: aSequenceNode [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGStaticParametersReplacer >> visitTemplateParameter: aTemplateParameter [
 	^ self context
 		at: aTemplateParameter name

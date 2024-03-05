@@ -1,6 +1,6 @@
-Extension { #name : #KMMetaModifier }
+Extension { #name : 'KMMetaModifier' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 KMMetaModifier >> asPCG [
 	^ KMModifier asPCG receiveMessage: #meta
 ]

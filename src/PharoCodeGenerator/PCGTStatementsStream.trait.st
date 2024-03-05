@@ -2,22 +2,24 @@
 I provide the DSL for nodes that wrap a body and need to be used as a stream to write statements.
 "
 Trait {
-	#name : #PCGTStatementsStream,
-	#category : #'PharoCodeGenerator-Traits'
+	#name : 'PCGTStatementsStream',
+	#category : 'PharoCodeGenerator-Traits',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Traits'
 }
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTStatementsStream >> << anASTNode [
 	^ self addStatement: anASTNode
 ]
 
-{ #category : #dsl }
+{ #category : 'dsl' }
 PCGTStatementsStream >> addStatement: anASTNode [
 	self statements
 		add: anASTNode asPCG
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGTStatementsStream >> statements [
 	^ self explicitRequirement
 ]

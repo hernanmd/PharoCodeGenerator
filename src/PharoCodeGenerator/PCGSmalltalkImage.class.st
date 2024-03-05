@@ -1,36 +1,38 @@
 Class {
-	#name : #PCGSmalltalkImage,
-	#superclass : #Object,
+	#name : 'PCGSmalltalkImage',
+	#superclass : 'Object',
 	#traits : 'PCGTInstallableEntity',
 	#classTraits : 'PCGTInstallableEntity classTrait',
 	#instVars : [
 		'packages'
 	],
-	#category : #'PharoCodeGenerator-MetaModel'
+	#category : 'PharoCodeGenerator-MetaModel',
+	#package : 'PharoCodeGenerator',
+	#tag : 'MetaModel'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PCGSmalltalkImage >> initialize [
 	super initialize.
 	self packages: OrderedCollection new
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGSmalltalkImage >> installPCGPackageDescription: aPCGPackageDescription [
 	self packages add: aPCGPackageDescription
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGSmalltalkImage >> isPCGObject [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGSmalltalkImage >> packages [
 	^ packages
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGSmalltalkImage >> packages: anObject [
 	packages := anObject
 ]

@@ -1,6 +1,6 @@
-Extension { #name : #Behavior }
+Extension { #name : 'Behavior' }
 
-{ #category : #'*PharoCodeGenerator' }
+{ #category : '*PharoCodeGenerator' }
 Behavior >> installPCGMethod: aPCGMethodNode [
 	((self includesLocalSelector: aPCGMethodNode selector) and: [ 
 		(self >> aPCGMethodNode selector) pragmas

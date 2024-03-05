@@ -1,17 +1,19 @@
 Class {
-	#name : #PCGTemplatesRepository,
-	#superclass : #Object,
-	#category : #'PharoCodeGenerator-Templates'
+	#name : 'PCGTemplatesRepository',
+	#superclass : 'Object',
+	#category : 'PharoCodeGenerator-Templates',
+	#package : 'PharoCodeGenerator',
+	#tag : 'Templates'
 }
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> accessorForSlotNamed: slotName [
 	^ self accessorMethodTemplate substituteParametersWith: { 
 		#accessorSelector -> slotName.
 		#slotName -> slotName asPCGInstanceVariable } asDictionary
 ]
 
-{ #category : #templates }
+{ #category : 'templates' }
 PCGTemplatesRepository >> accessorMethodTemplate [
 	^ (PCGMethodNode selector: #accessorSelector asPCGTemplateParameter)
 		protocol: 'accessing';
@@ -19,12 +21,12 @@ PCGTemplatesRepository >> accessorMethodTemplate [
 			body << #slotName asPCGTemplateParameter returnIt ]
 ]
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> equalMethodForSlots: aCollectionOfSlots [
 	^ self equalMethodForSlots: aCollectionOfSlots withSuperCall: false
 ]
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> equalMethodForSlots: aCollectionOfSlots withSuperCall: shouldCallSuper [
 	| equalNodes testExpression |
 	aCollectionOfSlots
@@ -45,7 +47,7 @@ PCGTemplatesRepository >> equalMethodForSlots: aCollectionOfSlots withSuperCall:
 		#testExpression -> testExpression })
 ]
 
-{ #category : #templates }
+{ #category : 'templates' }
 PCGTemplatesRepository >> equalMethodTemplate [
 	^ (PCGMethodNode selector: #= arguments: { #anObject asPCGArgument })
 				bodyBlock: [ :body |
@@ -60,12 +62,12 @@ PCGTemplatesRepository >> equalMethodTemplate [
 				yourself
 ]
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> hashMethodForSlots: aCollectionOfSlots [
 	^ self hashMethodForSlots: aCollectionOfSlots withSuperCall: false
 ]
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> hashMethodForSlots: aCollectionOfSlots withSuperCall: shouldCallSuper [
 	| hashNodes hashExpression |
 	aCollectionOfSlots
@@ -85,7 +87,7 @@ PCGTemplatesRepository >> hashMethodForSlots: aCollectionOfSlots withSuperCall: 
 		#hashExpression -> hashExpression })
 ]
 
-{ #category : #templates }
+{ #category : 'templates' }
 PCGTemplatesRepository >> hashMethodTemplate [
 	^ (PCGMethodNode selector: #hash)
 				bodyBlock: [ :body |
@@ -94,12 +96,12 @@ PCGTemplatesRepository >> hashMethodTemplate [
 				yourself
 ]
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> mutatorForSlotNamed: slotName [
 	^ self mutatorForSlotNamed: slotName argumentName: #anObject
 ]
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> mutatorForSlotNamed: slotName argumentName: argumentName [
 	^ self mutatorMethodTemplate substituteParametersWith: { 
 		#mutatorSelector -> (slotName , ':') asSymbol.
@@ -107,7 +109,7 @@ PCGTemplatesRepository >> mutatorForSlotNamed: slotName argumentName: argumentNa
 		#slotName -> slotName asPCGInstanceVariable } asDictionary
 ]
 
-{ #category : #templates }
+{ #category : 'templates' }
 PCGTemplatesRepository >> mutatorMethodTemplate [
 	^ (PCGMethodNode selector: #mutatorSelector asPCGTemplateParameter arguments: { #argumentName asPCGTemplateParameter })
 		protocol: 'accessing';
@@ -115,14 +117,14 @@ PCGTemplatesRepository >> mutatorMethodTemplate [
 			body << (#slotName asPCGTemplateParameter assign: #argumentName asPCGTemplateParameter) ]
 ]
 
-{ #category : #builders }
+{ #category : 'builders' }
 PCGTemplatesRepository >> type: classOfTypeToTest testMethodFor: classToInstallIn [
 	^ self typeTestMethodTemplate substituteParametersWith: { 
 		#selector -> ('is' , classOfTypeToTest name) asSymbol.
 		#booleanToReturn -> (classOfTypeToTest = classToInstallIn) asPCG } asDictionary
 ]
 
-{ #category : #templates }
+{ #category : 'templates' }
 PCGTemplatesRepository >> typeTestMethodTemplate [
 	^ (PCGMethodNode selector: #selector asPCGTemplateParameter)
 		protocol: 'testing';

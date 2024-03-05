@@ -1,53 +1,55 @@
 Class {
-	#name : #PCGExtensionMethod,
-	#superclass : #Object,
+	#name : 'PCGExtensionMethod',
+	#superclass : 'Object',
 	#traits : 'PCGTInstallableEntity + PCGTTemplatable',
 	#classTraits : 'PCGTInstallableEntity classTrait + PCGTTemplatable classTrait',
 	#instVars : [
 		'#methodNode type: PCGMethodNode',
 		'#installationTarget type: PCGValueNode'
 	],
-	#category : #'PharoCodeGenerator-MetaModel'
+	#category : 'PharoCodeGenerator-MetaModel',
+	#package : 'PharoCodeGenerator',
+	#tag : 'MetaModel'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PCGExtensionMethod class >> methodNode: methodNode [
 	^ self new
 		methodNode: methodNode;
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PCGExtensionMethod >> acceptVisitor: aVisitor [
 	^ aVisitor visitExtensionMethod: self
 ]
 
-{ #category : #installing }
+{ #category : 'installing' }
 PCGExtensionMethod >> installOn: aPackage [
 	^ aPackage installPCGExtensionMethod: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGExtensionMethod >> installationTarget [
 	^ installationTarget
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGExtensionMethod >> installationTarget: anObject [
 	installationTarget := anObject asPCG
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 PCGExtensionMethod >> isPCGObject [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGExtensionMethod >> methodNode [
 	^ methodNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PCGExtensionMethod >> methodNode: anObject [
 	methodNode := anObject
 ]

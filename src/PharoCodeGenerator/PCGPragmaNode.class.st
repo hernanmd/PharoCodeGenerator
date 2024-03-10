@@ -7,7 +7,7 @@ Class {
 	#superclass : 'PCGProgramNode',
 	#instVars : [
 		'#selector type: Symbol',
-		'#arguments type:\r\t(SequenceableCollection withItemsType: PCGLiteralNode)'
+		'#arguments type: (SequenceableCollection withItemsType: PCGLiteralNode)'
 	],
 	#category : 'PharoCodeGenerator-AST',
 	#package : 'PharoCodeGenerator',

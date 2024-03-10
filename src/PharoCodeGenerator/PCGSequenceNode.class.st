@@ -9,7 +9,7 @@ Class {
 	#classTraits : 'PCGTStatementsStream classTrait + PCGTWithTemporaries classTrait',
 	#instVars : [
 		'#statements type: (SequenceableCollection withItemsType: PCGTStatement)',
-		'#temporaries type:\r\t(SequenceableCollection withItemsType: PCGTemporaryNode)'
+		'#temporaries type: (SequenceableCollection withItemsType: PCGTemporaryNode)'
 	],
 	#category : 'PharoCodeGenerator-AST',
 	#package : 'PharoCodeGenerator',

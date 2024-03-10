@@ -10,7 +10,7 @@ Class {
 	#instVars : [
 		'#selector type: Symbol',
 		'#body type: PCGSequenceNode',
-		'#arguments type:\r\t(SequenceableCollection withItemsType: PCGArgumentNode)',
+		'#arguments type: (SequenceableCollection withItemsType: PCGArgumentNode)',
 		'#pragmas type: (SequenceableCollection withItemsType: PCGPragmaNode)',
 		'#protocol type: String'
 	],
